@@ -9,12 +9,15 @@ const setOutputDisplay = val => {
 }
 setOutputDisplay(0)
 
-document.querySelector('.clear').addEventListener('click', el => {
+const errorEl = document.querySelector('.error-message')
+const clear = () => {
+    errorEl.style.display = 'none'
     setOutputDisplay(0)
     operationType = null
     firstNumber = ''
     secondNumber = ''
-})
+}
+document.querySelector('.clear').addEventListener('click', clear)
 
 document.querySelector('.equals').addEventListener('click', el => {
     secondNumber = Number(secondNumber)
@@ -45,9 +48,15 @@ document.querySelectorAll('.number').forEach(el => {
 })
 
 const operate = (op, a, b) => {
-    setOutputDisplay(round(calc[op](a, b)))
-    firstNumber = Number(output)
-    secondNumber = ''
+    if (op === 'divide' && b === 0) {
+        clear()
+        errorEl.style.display = 'block'
+    } else {
+        errorEl.style.display = 'none'
+        setOutputDisplay(round(calc[op](a, b)))
+        firstNumber = Number(output)
+        secondNumber = ''
+    }
 }
 
 const calc = {
