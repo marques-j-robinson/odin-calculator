@@ -1,1 +1,2 @@
-console.log('hello world')
+const outputEl = document.querySelector('.output')
+outputEl.innerText = 0
