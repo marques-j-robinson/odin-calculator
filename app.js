@@ -30,9 +30,6 @@ document.querySelectorAll('.op').forEach(el => {
             operate(operationType, firstNumber, Number(secondNumber))
         }
         operationType = op
-        console.log(firstNumber)
-        console.log(secondNumber)
-        console.log(output)
     })
 })
 document.querySelectorAll('.number').forEach(el => {
