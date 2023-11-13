@@ -5,6 +5,13 @@ const calc = {
     divide: (a, b) => a/b,
 }
 
+let operationType
+let firstNumber
+let secondNumber
 
-const outputEl = document.querySelector('.output')
-outputEl.innerText = 0
+document.querySelectorAll('.op').forEach(el => {
+    el.addEventListener('click', e => {
+        const {op} = el.dataset
+        console.log(op)
+    })
+})
